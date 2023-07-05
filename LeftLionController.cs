@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LionController : MonoBehaviour {
+public class LeftLionController : MonoBehaviour {
     public float knockbackForce;
     public GameObject player;
     public GameObject terrain;
     [SerializeField] private LionAttackCooldown Lion_attack_cooldown;
 
-    public int Lion_HP = 10000;
+    public int Lion_HP = 5000;
     public int Lion_ATK = 40;
     public int Lion_Speed = 1;
     public int Lion_cooldown = 5;
@@ -43,7 +43,7 @@ public class LionController : MonoBehaviour {
             }
             Lion_attack_cooldown.StartCooldown();
         }
-        
+
     }
     private void OnTriggerEnter(Collider other) {
         if(Lion_attack_cooldown.IsCoolingDown)
@@ -53,12 +53,12 @@ public class LionController : MonoBehaviour {
 
         if(other.gameObject.tag == ("Player")) {
             is_Attacking_player = true;
-            
+
         }
-        
+
     }
     private void OnTriggerExit(Collider other) {
-        
+
         if(other.gameObject.tag == ("Player")) {
             is_Attacking_player = false;
 
